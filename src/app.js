@@ -341,6 +341,17 @@ const flowSelectDoctores = addKeyword("##GetEspecialidades##").addAction(
     let validation = 0;
     const response = ctx.body;
 
+    if (
+      response === "menu" ||
+      response === "Menu" ||
+      response === "Menú" ||
+      response === "MENU" ||
+      response === "MENÚ" ||
+      response === "Menu"
+    ) {
+      return gotoFlow(flowEspecialidades);
+    }
+
     for (const doctor of doctores) {
       if (indice == response) {
         await state.update({ selectedDoct: doctor, idDoc:doctor.docID });
