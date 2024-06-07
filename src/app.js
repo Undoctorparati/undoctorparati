@@ -324,7 +324,7 @@ const flowDoctores = addKeyword("##GetEspecialidades##").addAction(
 
         indice += 1;
       }
-
+      msg += `\n⭕ Escribe *Menu* para regresar`;
       await state.update({ doctores: doctores });
       await flowDynamic([{ body: msg, delay: 1500 }]);
       return gotoFlow(flowSelectDoctores);
@@ -392,7 +392,8 @@ const flowGetConsultorios = addKeyword("##flowGetConsultorios##").addAction(
       }
     }
 
-    msg += `\n\n👉 Escribe el número del consultorio que deseas por favor:`;
+    msg += `\n\n👉 *Escribe el número* del consultorio que deseas por favor:`;
+    msg += `\n⭕ o escribe *Menu* para regresar`;
     await flowDynamic([{ body: msg, delay: 1500 }]);
     return gotoFlow(flowSelectConsultorio);
   }
